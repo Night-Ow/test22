@@ -1,0 +1,21 @@
+{
+	"siteId": "1ccfa191-b70a-43c0-b4a6-f041693baea7",
+	"geolocation": {
+		"data": {
+			"city": "Strasbourg",
+			"country": {
+				"code": "FR",
+				"name": "France"
+			},
+			"subdivision": {
+				"code": "GES",
+				"name": "Grand Est"
+			},
+			"timezone": "Europe/Paris",
+			"latitude": 48.5848,
+			"longitude": 7.7419,
+			"postalCode": "67100"
+		},
+		"timestamp": 1763373042992
+	}
+}

@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VintedClone - Marketplace de Mode</title>
+    <style>
+        :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+  }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-16) var(--space-24);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-24);
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.search-bar {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: var(--space-12) var(--space-16);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.search-bar input:focus {
+    outline: var(--focus-outline);
+    border-color: var(--color-primary);
+}
+
+.nav-actions {
+    display: flex;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+.btn {
+    padding: var(--space-12) var(--space-20);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    border: none;
+    transition: all var(--duration-fast);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-24);
+}
+
+/* Filter Panel */
+.filter-panel {
+    background-color: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    margin-bottom: var(--space-24);
+}
+
+.filter-panel h3 {
+    margin-bottom: var(--space-16);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+.filter-group {
+    margin-bottom: var(--space-20);
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: var(--space-8);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+}
+
+.filter-group input[type="range"] {
+    width: 100%;
+    margin: var(--space-8) 0;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: var(--space-8) var(--space-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: 0;
+    cursor: pointer;
+}
+
+.price-range-display {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-4);
+}
+
+/* Masonry Grid */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--space-20);
+    margin-top: var(--space-24);
+}
+
+.item-card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-card-border);
+    cursor: pointer;
+    transition: all var(--duration-normal);
+    position: relative;
+}
+
+.item-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.item-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.item-info {
+    padding: var(--space-16);
+}
+
+.item-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item-price {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-8);
+}
+
+.item-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.favorite-btn {
+    position: absolute;
+    top: var(--space-12);
+    right: var(--space-12);
+    background-color: var(--color-surface);
+    border: none;
+    border-radius: var(--radius-full);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all var(--duration-fast);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-btn.active {
+    color: var(--color-error);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-20);
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: var(--space-32);
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-16);
+    right: var(--space-16);
+    background: none;
+    border: none;
+    font-size: var(--font-size-3xl);
+    cursor: pointer;
+    color: var(--color-text-secondary);
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: var(--space-20);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-8);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: var(--space-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    font-size: var(--font-size-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family-base);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: var(--focus-outline);
+    border-color: var(--color-primary);
+}
+
+.error-message {
+    color: var(--color-error);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-4);
+}
+
+.success-message {
+    color: var(--color-success);
+    font-size: var(--font-size-base);
+    padding: var(--space-16);
+    background-color: rgba(var(--color-success-rgb), 0.1);
+    border-radius: var(--radius-base);
+    margin-bottom: var(--space-16);
+}
+
+/* Item Detail Page */
+.item-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-32);
+    margin-top: var(--space-24);
+}
+
+.item-detail-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-20);
+}
+
+.item-detail-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.item-detail-price {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.item-detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding: var(--space-16);
+    background-color: var(--color-bg-1);
+    border-radius: var(--radius-base);
+}
+
+.seller-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-16);
+    background-color: var(--color-bg-2);
+    border-radius: var(--radius-base);
+    cursor: pointer;
+}
+
+.seller-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-btn-primary-text);
+    font-weight: var(--font-weight-bold);
+}
+
+.seller-details {
+    flex: 1;
+}
+
+.seller-name {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+}
+
+.seller-rating {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--space-12);
+}
+
+.action-buttons .btn {
+    flex: 1;
+}
+
+/* Multi-step Form */
+.step-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-32);
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: var(--space-12);
+    border-bottom: 3px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.step.active {
+    border-bottom-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.step.completed {
+    border-bottom-color: var(--color-success);
+    color: var(--color-success);
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.upload-area {
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-base);
+    padding: var(--space-32);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--duration-fast);
+    background-color: var(--color-bg-3);
+}
+
+.upload-area:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-1);
+}
+
+.upload-area.dragover {
+    border-color: var(--color-primary);
+    background-color: var(--color-bg-1);
+}
+
+.image-preview {
+    margin-top: var(--space-16);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-12);
+}
+
+.preview-item {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    border-radius: var(--radius-base);
+    overflow: hidden;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-image {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background-color: var(--color-error);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-24);
+}
+
+/* Profile Page */
+.profile-header {
+    background-color: var(--color-bg-2);
+    padding: var(--space-32);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-24);
+    margin-bottom: var(--space-24);
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-btn-primary-text);
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+}
+
+.profile-info h2 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-8);
+}
+
+.profile-stats {
+    display: flex;
+    gap: var(--space-16);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+}
+
+.tabs {
+    display: flex;
+    gap: var(--space-12);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-24);
+}
+
+.tab {
+    padding: var(--space-12) var(--space-20);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-weight: var(--font-weight-medium);
+    transition: all var(--duration-fast);
+}
+
+.tab.active {
+    border-bottom-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Reviews */
+.review-card {
+    background-color: var(--color-surface);
+    padding: var(--space-20);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    margin-bottom: var(--space-16);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-12);
+}
+
+.review-author {
+    font-weight: var(--font-weight-semibold);
+}
+
+.review-rating {
+    color: var(--color-warning);
+}
+
+.review-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+/* Messaging */
+.messaging-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-20);
+    height: 600px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    overflow: hidden;
+}
+
+.conversations-list {
+    border-right: 1px solid var(--color-border);
+    overflow-y: auto;
+}
+
+.conversation-item {
+    padding: var(--space-16);
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color var(--duration-fast);
+}
+
+.conversation-item:hover,
+.conversation-item.active {
+    background-color: var(--color-bg-1);
+}
+
+.conversation-name {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-4);
+}
+
+.conversation-preview {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    padding: var(--space-16);
+    border-bottom: 1px solid var(--color-border);
+    font-weight: var(--font-weight-semibold);
+}
+
+.messages-container {
+    flex: 1;
+    padding: var(--space-20);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+}
+
+.message {
+    max-width: 70%;
+    padding: var(--space-12) var(--space-16);
+    border-radius: var(--radius-base);
+    background-color: var(--color-bg-3);
+}
+
+.message.sent {
+    align-self: flex-end;
+    background-color: var(--color-primary);
+    color: var(--color-btn-primary-text);
+}
+
+.message.received {
+    align-self: flex-start;
+}
+
+.message-time {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-4);
+}
+
+.message-input {
+    padding: var(--space-16);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: var(--space-12);
+}
+
+.message-input input {
+    flex: 1;
+    padding: var(--space-12);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/* Cart */
+.cart-items {
+    margin-bottom: var(--space-24);
+}
+
+.cart-item {
+    display: flex;
+    gap: var(--space-16);
+    padding: var(--space-16);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-card-border);
+    margin-bottom: var(--space-16);
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--radius-base);
+    background-color: var(--color-secondary);
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-4);
+}
+
+.cart-item-price {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.cart-summary {
+    background-color: var(--color-bg-2);
+    padding: var(--space-24);
+    border-radius: var(--radius-lg);
+}
+
+.cart-total {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-16);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* AI Features */
+.ai-section {
+    background-color: var(--color-bg-5);
+    padding: var(--space-16);
+    border-radius: var(--radius-base);
+    margin-top: var(--space-16);
+    border: 1px solid rgba(147, 51, 234, 0.2);
+}
+
+.ai-suggestions {
+    margin-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.ai-suggestion {
+    padding: var(--space-12);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-base);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all var(--duration-fast);
+}
+
+.ai-suggestion:hover {
+    background-color: var(--color-bg-1);
+    border-color: var(--color-primary);
+}
+
+.ai-warning {
+    background-color: rgba(var(--color-warning-rgb), 0.1);
+    border: 1px solid rgba(var(--color-warning-rgb), 0.3);
+    padding: var(--space-12);
+    border-radius: var(--radius-base);
+    color: var(--color-warning);
+    margin-top: var(--space-12);
+    font-size: var(--font-size-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .nav-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--space-12);
+    }
+    
+    .item-detail {
+        grid-template-columns: 1fr;
+    }
+    
+    .messaging-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .conversations-list {
+        display: none;
+    }
+    
+    .step-indicator {
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.back-button {
+    margin-bottom: var(--space-20);
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo" onclick="showPage('home')">VintedClone</a>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Rechercher des articles..." onkeyup="performSearch()">
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="showSellForm()" id="sellBtn">Vendre</button>
+                <button class="btn btn-outline" onclick="showPage('favorites')" id="favoritesBtn">♡ Favoris</button>
+                <button class="btn btn-outline" onclick="showPage('cart')" id="cartBtn">🛒 Panier</button>
+                <button class="btn btn-outline" onclick="showPage('messages')" id="messagesBtn">💬 Messages</button>
+                <button class="btn btn-outline hidden" onclick="showPage('orders')" id="ordersBtn">📦 Mes commandes</button>
+                <button class="btn btn-secondary" onclick="showRegisterModal()" id="registerBtn">S'inscrire</button>
+                <button class="btn btn-secondary" onclick="showLoginModal()" id="loginBtn">Se connecter</button>
+                <button class="btn btn-outline hidden" onclick="logout()" id="logoutBtn">Se déconnecter</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <!-- Filter Panel -->
+            <div class="filter-panel">
+                <h3>Filtres</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-20);">
+                    <div class="filter-group">
+                        <label>Catégorie</label>
+                        <select id="categoryFilter" onchange="applyFilters()">
+                            <option value="">Toutes les catégories</option>
+                            <option value="Vêtements">Vêtements</option>
+                            <option value="Chaussures">Chaussures</option>
+                            <option value="Accessoires">Accessoires</option>
+                            <option value="Électronique">Électronique</option>
+                            <option value="Livres">Livres</option>
+                            <option value="Maison">Maison</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>État</label>
+                        <select id="conditionFilter" onchange="applyFilters()">
+                            <option value="">Tous les états</option>
+                            <option value="Neuf">Neuf</option>
+                            <option value="Très bon état">Très bon état</option>
+                            <option value="Bon état">Bon état</option>
+                            <option value="Acceptable">Acceptable</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Prix maximum: <span id="priceValue">200</span>€</label>
+                        <input type="range" id="priceFilter" min="0" max="1000" value="200" step="10" oninput="updatePriceValue(); applyFilters()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Items Grid -->
+            <div id="itemsGrid" class="items-grid"></div>
+        </div>
+
+        <!-- Item Detail Page -->
+        <div id="itemDetailPage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('home')">← Retour</button>
+            <div id="itemDetailContent"></div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('home')">← Retour</button>
+            <div id="profileContent"></div>
+        </div>
+
+        <!-- Favorites Page -->
+        <div id="favoritesPage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('home')">← Retour</button>
+            <h2 style="margin-bottom: var(--space-24);">Mes Favoris</h2>
+            <div id="favoritesGrid" class="items-grid"></div>
+        </div>
+
+        <!-- Cart Page -->
+        <div id="cartPage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('home')">← Retour</button>
+            <h2 style="margin-bottom: var(--space-24);">Mon Panier</h2>
+            <div id="cartContent"></div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div id="checkoutPage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('cart')">← Retour au panier</button>
+            <h2 style="margin-bottom: var(--space-24);">Finaliser la commande</h2>
+            <div id="checkoutContent"></div>
+        </div>
+
+        <!-- Messages Page -->
+        <div id="messagesPage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('home')">← Retour</button>
+            <h2 style="margin-bottom: var(--space-24);">Messagerie</h2>
+            <div id="messagingContainer"></div>
+        </div>
+
+        <!-- Orders Page -->
+        <div id="ordersPage" class="page">
+            <button class="btn btn-outline back-button" onclick="showPage('home')">← Retour</button>
+            <h2 style="margin-bottom: var(--space-24);">Mes commandes</h2>
+            <div id="ordersContent"></div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+            <h2 style="margin-bottom: var(--space-24);">S'inscrire</h2>
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label>Nom d'utilisateur</label>
+                    <input type="text" id="regUsername" required>
+                    <div class="error-message" id="regUsernameError"></div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" required>
+                    <div class="error-message" id="regEmailError"></div>
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" id="regPassword" required>
+                    <div class="error-message" id="regPasswordError"></div>
+                </div>
+                <div class="form-group">
+                    <label>Confirmer le mot de passe</label>
+                    <input type="password" id="regPasswordConfirm" required>
+                    <div class="error-message" id="regPasswordConfirmError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            <h2 style="margin-bottom: var(--space-24);">Se connecter</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email ou nom d'utilisateur</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" id="loginPassword" required>
+                    <div class="error-message" id="loginError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sell Form Modal -->
+    <div id="sellModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <button class="modal-close" onclick="closeModal('sellModal')">&times;</button>
+            <h2 style="margin-bottom: var(--space-24);">Mettre en vente un article</h2>
+            
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step active" data-step="1">1. Photos</div>
+                <div class="step" data-step="2">2. Détails</div>
+                <div class="step" data-step="3">3. État & Taille</div>
+                <div class="step" data-step="4">4. Prix</div>
+            </div>
+
+            <form id="sellForm" onsubmit="handleSellSubmit(event)">
+                <!-- Step 1: Photos -->
+                <div class="form-step active" data-step="1">
+                    <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                        <p style="font-size: var(--font-size-lg); margin-bottom: var(--space-8);">📸 Glissez vos photos ici ou cliquez pour les sélectionner</p>
+                        <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">Format: JPG, PNG (max 5 photos)</p>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" onchange="handleFileSelect(event)">
+                    <div id="imagePreview" class="image-preview"></div>
+                    
+                    <div class="ai-section">
+                        <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8);">🤖 IA - Analyse d'image</p>
+                        <button type="button" class="btn btn-secondary" onclick="simulateImageAnalysis()" style="width: 100%;">Analyser les photos avec l'IA</button>
+                        <div id="imageAnalysisResult"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Details -->
+                <div class="form-step" data-step="2">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" id="sellTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="sellDescription" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Catégorie</label>
+                        <select id="sellCategory" required>
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="Vêtements">Vêtements</option>
+                            <option value="Chaussures">Chaussures</option>
+                            <option value="Accessoires">Accessoires</option>
+                            <option value="Électronique">Électronique</option>
+                            <option value="Livres">Livres</option>
+                            <option value="Maison">Maison</option>
+                        </select>
+                    </div>
+                    
+                    <div class="ai-section">
+                        <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8);">🤖 IA - Génération de description</p>
+                        <button type="button" class="btn btn-secondary" onclick="generateAIDescriptions()" style="width: 100%;">Générer une description par IA</button>
+                        <div id="aiDescriptions" class="ai-suggestions"></div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Condition and Size -->
+                <div class="form-step" data-step="3">
+                    <div class="form-group">
+                        <label>Marque</label>
+                        <input type="text" id="sellBrand" required>
+                    </div>
+                    <div class="form-group">
+                        <label>État</label>
+                        <select id="sellCondition" required onchange="updatePriceSuggestion()">
+                            <option value="">Sélectionner l'état</option>
+                            <option value="Neuf">Neuf avec étiquette</option>
+                            <option value="Très bon état">Très bon état</option>
+                            <option value="Bon état">Bon état</option>
+                            <option value="Acceptable">Acceptable</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Taille</label>
+                        <input type="text" id="sellSize" placeholder="Ex: M, 42, Unique" required>
+                    </div>
+                </div>
+
+                <!-- Step 4: Price -->
+                <div class="form-step" data-step="4">
+                    <div class="form-group">
+                        <label>Prix (€)</label>
+                        <input type="number" id="sellPrice" min="1" step="0.01" required>
+                    </div>
+                    
+                    <div class="ai-section">
+                        <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8);">🤖 IA - Suggestion de prix</p>
+                        <button type="button" class="btn btn-secondary" onclick="suggestPrice()" style="width: 100%;">Suggérer un prix optimal</button>
+                        <div id="priceSuggestion"></div>
+                    </div>
+
+                    <div id="sellSuccessMessage" class="success-message hidden">
+                        ✅ Votre article a été mis en vente avec succès !
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-outline" id="prevBtn" onclick="previousStep()" style="display: none;">Précédent</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">Suivant</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Publier l'article</button>
+                </div>
+            </form>
+        </div>
+            const container = document.getElementById('aiDescriptions');
+            container.innerHTML = descriptions.map((desc, index) => `
+                <div class="ai-suggestion" onclick="selectAIDescription(${index})">
+                    <strong>Option ${index + 1}:</strong> ${desc}
+                </div>
+            `).join('');
+        }
+
+        function selectAIDescription(index) {
+            const descriptions = [
+                document.getElementById('sellTitle').value + " en excellent état. Article de qualité parfait pour compléter votre garde-robe. Très confortable et élégant, idéal pour toutes les occasions.",
+                "Magnifique " + document.getElementById('sellTitle').value.toLowerCase() + " à vendre! Porté avec soin et en très bon état. Un incontournable pour les amateurs de mode qui recherchent qualité et style.",
+                document.getElementById('sellTitle').value + " comme neuf! Article tendance et intemporel qui saura vous séduire. Profitez de cette belle opportunité pour acquérir cet article à prix réduit."
+            ];
+            
+            document.getElementById('sellDescription').value = descriptions[index];
+            alert('Description sélectionnée!');
+        }
+
+        function suggestPrice() {
+            const category = document.getElementById('sellCategory').value;
+            const condition = document.getElementById('sellCondition').value;
+            const brand = document.getElementById('sellBrand').value;
+            
+            if (!category || !condition) {
+                alert('Veuillez d\'abord remplir la catégorie et l\'état');
+                return;
+            }
+            
+            // Simple price suggestion logic
+            let basePrice = 30;
+            
+            if (category === 'Électronique') basePrice = 150;
+            if (category === 'Chaussures') basePrice = 50;
+            if (category === 'Accessoires') basePrice = 25;
+            
+            if (condition === 'Neuf') basePrice *= 1.5;
+            if (condition === 'Très bon état') basePrice *= 1.2;
+            if (condition === 'Acceptable') basePrice *= 0.7;
+            
+            if (brand && (brand.toLowerCase().includes('nike') || brand.toLowerCase().includes('adidas') || brand.toLowerCase().includes('apple'))) {
+                basePrice *= 1.3;
+            }
+            
+            const minPrice = Math.floor(basePrice * 0.8);
+            const maxPrice = Math.ceil(basePrice * 1.2);
+            
+            document.getElementById('priceSuggestion').innerHTML = `
+                <div style="margin-top: var(--space-12); padding: var(--space-12); background-color: var(--color-surface); border-radius: var(--radius-base); border: 1px solid var(--color-border);">
+                    <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8);">💡 Prix suggéré</p>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-primary); font-weight: var(--font-weight-bold);">${minPrice}€ - ${maxPrice}€</p>
+                    <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-top: var(--space-4);">Basé sur des articles similaires vendus récemment</p>
+                    <button type="button" class="btn btn-outline" onclick="document.getElementById('sellPrice').value = ${Math.floor(basePrice)}" style="width: 100%; margin-top: var(--space-8);">Utiliser ${Math.floor(basePrice)}€</button>
+                </div>
+            `;
+        }
+
+        function updatePriceSuggestion() {
+            // Auto-update price suggestion when condition changes
+            const priceSuggestion = document.getElementById('priceSuggestion');
+            if (priceSuggestion.innerHTML) {
+                suggestPrice();
+            }
+        }
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
